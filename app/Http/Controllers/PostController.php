@@ -32,4 +32,29 @@ class PostController extends Controller
             'posts' => $this->posts(),
         ]);
     }
+
+    public function show(string $slug)
+    {
+        $posts = $this->posts();
+
+        abort_unless(isset($posts[$slug]), 404);
+
+        return view('posts.show', [
+            'post' => $posts[$slug],
+        ]);
+    }
+
+    public function archive(string $year)
+    {
+        $posts = array_filter(
+            $this->posts(),
+            fn (array $post): bool => (string) $post['year'] === $year
+        );
+
+        return view('posts.archive', [
+            'heading' => "Articles publiés en {$year}",
+            'year' => $year,
+            'posts' => $posts,
+        ]);
+    }
 }

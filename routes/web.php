@@ -16,3 +16,7 @@ Route::get('/heure', function () {
 });
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+Route::get('/posts/archive/{year}', [PostController::class, 'archive'])->whereNumber('year')->name('posts.archive');
+
+Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
