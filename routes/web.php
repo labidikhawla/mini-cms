@@ -12,4 +12,7 @@ Route::get('/heure', function () {
         'heure' => now()->format('H:i'),
         'date' => now()->format('d/m/Y'),
     ]);
+    Route::get('/', [PageController::class, 'home'])->name('home');
+
+Route::get('/a-propos', [PageController::class, 'about'])->name('about');
 });
