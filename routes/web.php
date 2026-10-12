@@ -7,13 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/a-propos', [PageController::class, 'about'])->name('about');
+Route::get('/heure', [PageController::class, 'time'])->name('time');
 
-Route::get('/heure', function () {
-    return view('heure', [
-        'heure' => now()->format('H:i'),
-        'date' => now()->format('d/m/Y'),
-    ]);
-});
 Route::prefix('posts')->name('posts.')->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
 
