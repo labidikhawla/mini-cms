@@ -15,3 +15,8 @@ Pourquoi filtrer les tags vides après get() plutôt que d'afficher (0) ?
 Pour des raisons d'UX (expérience utilisateur) et de SEO. Afficher un tag qui contient 0 article amène l'utilisateur vers une page vide, ce qui nuit à l'expérience de navigation et au référencement du site.
 Combien de requêtes ajoute la liste des tags populaires, et pourquoi pas une par tag ?
 Elle ajoute 1 seule requête SQL (en utilisant withCount() ou une agrégation GROUP BY), Pour éviter le problème du N+1. Faire une requête par tag dans une boucle exécuterait autant de requêtes SQL qu'il y a de tags, ce qui ralentirait inutilement l'application.
+### Session 08
+
+![Formulaire de modification avec la catégorie et les tags](screenshots/s08-formulaire-relations.png)
+
+![Page des articles d'une catégorie](screenshots/s08-page-categorie.png)
